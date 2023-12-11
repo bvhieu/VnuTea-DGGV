@@ -2,8 +2,10 @@
 
 -Start Server:
 cd server
+&
 npm start
 
 -Start Client:
-cd vnutea
+cd vnutea 
+&
 npm start
