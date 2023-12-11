@@ -4,10 +4,10 @@ import OutstandingModel from "@/models/outstanding.model";
 import { OutstandingGraph } from "../types/outstanding.graph";
 
 export const outstandingQuery: GraphQLFieldConfig<any, any> = {
-    type: GraphQLList(OutstandingGraph),
-    description: "Outstanding Query",
+  type: new GraphQLList(OutstandingGraph),
+  description: "Outstanding Query",
 
-    resolve: async (source, args) => {
-        return await OutstandingModel.get();
-    }
-}
+  resolve: async (source, args) => {
+    return await OutstandingModel.get();
+  },
+};

@@ -30,7 +30,7 @@ function Onboarding({navigation}: TProps): JSX.Element {
     if (currentIndex + 1 <= slides.length - 1)
       (slideRef.current as FlatList).scrollToIndex({index: currentIndex + 1});
     else {
-      navigation.replace('MainRootApp');
+      navigation.replace('Login');
     }
   }
 

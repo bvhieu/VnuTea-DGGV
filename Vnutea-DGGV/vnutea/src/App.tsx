@@ -8,10 +8,11 @@ import {HomeStackNavigator} from './ContactStackNavigator';
 import StudentScreen from './screens/StudentHome/StudentScreen';
 import SplashScreen from 'react-native-splash-screen';
 import Onboarding from './screens/Onboarding';
+import Login from './screens/Login';
+import Signup from './screens/Signup';
 import Icon from 'react-native-vector-icons/Octicons';
 import Search from './screens/Search/components/Search';
 import {SearchStackNavigator} from './screens/Search';
-import Login from './screens/Login/Login';
 import {Text, View} from 'react-native';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -77,6 +78,7 @@ function App(): JSX.Element {
         {isFirstLaunched && (
           <RootStack.Screen name="OnBoarding" component={Onboarding} />
         )}
+        <RootStack.Screen name="Login" component={Login}></RootStack.Screen>
         <RootStack.Screen name="MainRootApp" component={MainRootApp} />
       </RootStack.Navigator>
     </NavigationContainer>

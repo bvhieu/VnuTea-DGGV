@@ -11,28 +11,25 @@ import {
   StatusBar,
   Alert,
 } from 'react-native';
-import {signInWithEmailAndPassword} from 'firebase/auth';
-import Logo from '../components/Logo';
-import {auth} from '../config/firebase';
+import Logo from '@/components/Logo';
 
-export default function Login({navigation}) {
+export default function Signup({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onHandleLogin = () => {
+  function nextHome() {
     if (email !== '' && password !== '') {
-      signInWithEmailAndPassword(auth, email, password)
-        .then(() => console.log('Login success'))
-        .catch(err => Alert.alert('Login error', err.message));
+      navigation.replace('MainRootApp');
+    } else {
     }
-  };
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.whiteSheet} />
       <SafeAreaView style={styles.form}>
         <Logo />
-        <Text style={styles.title}>Welcome</Text>
+        <Text style={styles.title}>Sign Up</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter email"
@@ -53,12 +50,12 @@ export default function Login({navigation}) {
           value={password}
           onChangeText={text => setPassword(text)}
         />
-        {/* <TouchableOpacity style={styles.button} onPress={onHandleLogin}>
+        <TouchableOpacity style={styles.button} onPress={nextHome}>
           <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 20}}>
             {' '}
-            Log In
+            Sign Up
           </Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
         <View
           style={{
             marginTop: 20,
@@ -69,10 +66,10 @@ export default function Login({navigation}) {
           <Text style={{color: 'gray', fontWeight: '600', fontSize: 14}}>
             Don't have an account?{' '}
           </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={{color: '#92D5E6', fontWeight: '600', fontSize: 14}}>
               {' '}
-              Sign Up
+              Log In
             </Text>
           </TouchableOpacity>
         </View>
@@ -84,7 +81,7 @@ export default function Login({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#92D5E6',
   },
   title: {
     fontSize: 40,
